@@ -63,7 +63,7 @@ public class Main {
             try {
                 Moeda resultado = consulta.buscaCambio(moedaDeOrigem);
                 double convertido = valor * resultado.getTaxa(moedaDeConversao);
-                System.out.printf(" %.2f %s = %.2f %s%n", valor, moedaDeOrigem, convertido, moedaDeConversao);
+                System.out.println(valor + " " + moedaDeOrigem + " = " + convertido + " " + moedaDeConversao);
             } catch (RuntimeException e) {
                 System.out.println(e.getMessage());
             }
