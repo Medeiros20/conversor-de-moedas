@@ -7,7 +7,7 @@ public class Main {
 
         while (true) {
             System.out.println("___________________________");
-            System.out.println("Conversor de Moedas");
+            System.out.println("Conversor moedaDeOrigem Moedas");
             System.out.println("1 - Dolar (USD) → Real (BRL)");
             System.out.println("2 - Real (BRL) → Dolar (USD)");
             System.out.println("3 - Euro (EUR) → Real (BRL)");
@@ -18,31 +18,31 @@ public class Main {
             System.out.print("Escolha uma das opção acima: ");
             int opcao = leitura.nextInt();
 
-            String from = "", to = "";
+            String moedaDeOrigem = "", moedaDeConversao = "";
             switch (opcao) {
                 case 1 -> {
-                    from = "USD";
-                    to = "BRL";
+                    moedaDeOrigem = "USD";
+                    moedaDeConversao = "BRL";
                 }
                 case 2 -> {
-                    from = "BRL";
-                    to = "USD";
+                    moedaDeOrigem = "BRL";
+                    moedaDeConversao = "USD";
                 }
                 case 3 -> {
-                    from = "EUR";
-                    to = "BRL";
+                    moedaDeOrigem = "EUR";
+                    moedaDeConversao = "BRL";
                 }
                 case 4 -> {
-                    from = "BRL";
-                    to = "EUR";
+                    moedaDeOrigem = "BRL";
+                    moedaDeConversao = "EUR";
                 }
                 case 5 -> {
-                    from = "USD";
-                    to = "EUR";
+                    moedaDeOrigem = "USD";
+                    moedaDeConversao = "EUR";
                 }
                 case 6 -> {
-                    from = "EUR";
-                    to = "USD";
+                    moedaDeOrigem = "EUR";
+                    moedaDeConversao = "USD";
                 }
                 default -> {
                     System.out.println("Opção inválida!");
@@ -54,9 +54,9 @@ public class Main {
             System.out.print("Digite o valor: ");
             double valor = leitura.nextDouble();
             try {
-                Moeda resultado = consulta.buscaCambio(from);
-                double convertido = valor * resultado.getTaxa(to);
-                System.out.printf(" %.2f %s = %.2f %s%n", valor, from, convertido, to);
+                Moeda resultado = consulta.buscaCambio(moedaDeOrigem);
+                double convertido = valor * resultado.getTaxa(moedaDeConversao);
+                System.out.printf(" %.2f %s = %.2f %s%n", valor, moedaDeOrigem, convertido, moedaDeConversao);
             } catch (RuntimeException e) {
                 System.out.println(e.getMessage());
             }
