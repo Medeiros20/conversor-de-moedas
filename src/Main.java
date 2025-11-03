@@ -5,7 +5,8 @@ public class Main {
         Scanner leitura = new Scanner(System.in);
         ConsultaCambio consulta = new ConsultaCambio();
 
-        while (true) {
+        int opcao = -1;
+        while (opcao != 0) {
             System.out.println("___________________________");
             System.out.println("Conversor moedaDeOrigem Moedas");
             System.out.println("1 - Dolar (USD) → Real (BRL)");
@@ -14,9 +15,16 @@ public class Main {
             System.out.println("4 - Real (BRL) → Euro (EUR)");
             System.out.println("5 - Dolar (USD) → Euro (EUR)");
             System.out.println("6 - Euro (EUR) → Dolar (USD)");
+            System.out.println("0 - Sair");
             System.out.println("___________________________");
             System.out.print("Escolha uma das opção acima: ");
-            int opcao = leitura.nextInt();
+            opcao = leitura.nextInt();
+
+            if (opcao == 0){
+                System.out.println("Saindo do programa...");
+                leitura.close();
+                break;
+            }
 
             String moedaDeOrigem = "", moedaDeConversao = "";
             switch (opcao) {
@@ -46,8 +54,7 @@ public class Main {
                 }
                 default -> {
                     System.out.println("Opção inválida!");
-                    leitura.close();
-                    return;
+                    continue;
                 }
             }
 
