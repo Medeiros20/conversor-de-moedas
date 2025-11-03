@@ -1,19 +1,24 @@
+import com.google.gson.annotations.SerializedName;
+
 import java.util.Map;
 
 public class Moeda {
-    private String base_code;
-    private Map<String, Double> conversion_rates;
+    @SerializedName("base_code")
+    private String moedaBase;
+
+    @SerializedName("conversion_rates")
+    private Map<String, Double> taxasConversao;
 
     public String getBaseCode() {
-        return base_code;
+        return moedaBase;
     }
 
     public double getTaxa(String destino) {
-        return conversion_rates.get(destino);
+        return taxasConversao.get(destino);
     }
 
     @Override
     public String toString() {
-        return "Moeda base: " + base_code + " | Conversões disponíveis: " + conversion_rates.keySet();
+        return "Moeda base: " + moedaBase + " | Conversões disponíveis: " + taxasConversao.keySet();
     }
 }
